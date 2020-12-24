@@ -1,4 +1,4 @@
-#!/home/muslim/PycharmProjects/shop/venv/bin/python
+#!/home/namat/Project/Django/venv/bin/python
 # -*- coding: utf-8 -*-
 import re
 import sys

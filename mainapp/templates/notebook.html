@@ -2,14 +2,32 @@
 
 
 {% block title %}{{ title }}{% endblock %}
-
 {% block content %}
-        {% for item in context %}
-            <br>
-            <a href="notebook/{{ item.id }}/{{ item.slug }}"><img src="{{ MEDIA_URL }}{{ item.image.url }}"/></a>
-            <h1>{{ item.title }}</h1>
-            <h3>{{ item.price }}</h3><br><br>
+
+{% block menu %}
+
+    {% for item in context %}
+              <div class="col-lg-4 col-md-6 mb-4">
+            <div class="card h-100">
+              <a href="notebook/{{ item.id }}/{{ item.slug }}"><img class="card-img-top" src="{{ item.image.url }}" alt=""></a>
+              <div class="card-body">
+                <h4 class="card-title">
+                  <a href="notebook{{ item.id }}/{{ item.slug }}">{{ item.title }}</a>
+               </h4>
+                <h5>${{ item.price }}</h5>
+                <h5>
+                     <a class="btn-ens-action btn-ens-style" data-rel="ec7e6d81232283">Купить</a>
+                </h5>
+              </div>
+              <div class="card-footer">
+                <small class="text-muted">&#9733; &#9733; &#9733; &#9733; &#9734;</small>
+              </div>
+            </div>
+          </div>
         {% endfor %}
 
+{% endblock menu %}
+
 {% endblock content %}
+
 

@@ -9,17 +9,15 @@
             <th scope="col">Наименование</th>
             <th scope="col">Изображение</th>
             <th scope="col">Цена</th>
-            <th scope="col">Количество</th>
             <th scope="col">Общая цена</th>
         </tr>
     </thead>
     <tbody>
-    {% for item in cart.products.all %}
+    {% for item in context %}
         <tr>
-            <th scope="row">{{ item.content_object.title }}</th>
-            <td class="w-25"><img src="{{ item.content_objects.image.url }}" class="img-fluid"></td>
-            <td> ${{ item.content_object.price }}.</td>
-            <td>{{ item.qty }}</td>
+            <th scope="row">{{ item.title }}</th>
+            <td class="w-25"><img src="{{ item.image.url }}" class="img-fluid"></td>
+            <td> ${{ item.price }}.</td>
             <td>${{ item.final_price }}</td>
         </tr>
     {% endfor %}

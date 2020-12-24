@@ -53,11 +53,17 @@ def product_detail_s(request, id, slug):
     product = Smartphone.objects.get(pk=id)
     return render(request, 'detail_smartphone.html',{'context': context, 'title': 'Details Smartphone', 'product': product})
 
-class CartView(View):
-    def get(self, request, *args, **kwargs):
-        customer = Customer.objects.get(user = request.user)
-        cart = Cart.objects.get(owner=customer)
-        context = {
-            'cart': cart
-        }
-        return render(request, 'cart.html', context)
+#class CartView(View):
+ #   def get(self, request, id):
+       # customer = Customer.objects.get(user = request.user)
+       # cart = Cart.objects.get(owner=customer)
+       # context = { #    'cart': cart#}
+  #      category = Category.name
+   #     if category == 'Смартфон':
+    #       context = Smartphone.objects.all(pk=id)
+     #   else:
+    #context = NoteBook.objects.all(pk=id)
+      #  return ren/der(request, 'cart.html', {'context' : context})
+def cart(request):
+    context = NoteBook.objects.filter(pk=1)
+    return render(request, 'cart.html', {'context': context})

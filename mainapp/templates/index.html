@@ -1,0 +1,42 @@
+{% extends 'base.html' %}
+{% block title%} {{ title }} {% endblock %}
+
+{% block menu %}
+
+{% for item in context %}
+          {% if item.category.slug == 'notebooks' %}
+          <div class="col-lg-4 col-md-6 mb-4">
+            <div class="card h-100">
+              <a href="notebook/{{ item.id }}/{{ item.slug }}"><img class="card-img-top" src="{{ item.image.url }}" alt=""></a>
+              <div class="card-body">
+                <h4 class="card-title">
+                  <a href="notebook{{ item.id }}/{{ item.slug }}">{{ item.title }}</a>
+               </h4>
+                <h5>${{ item.price }}</h5>
+
+              </div>
+              <div class="card-footer">
+                <small class="text-muted">&#9733; &#9733; &#9733; &#9733; &#9734;</small>
+              </div>
+            </div>
+          </div>
+     {% endif %}
+     {% if item.category.slug == 'smartphones' %}
+          <div class="col-lg-4 col-md-6 mb-4">
+            <div class="card h-100">
+              <a href="notebook/{{ item.id }}/{{ item.slug }}"><img class="card-img-top" src="{{ item.image.url }}" alt=""></a>
+              <div class="card-body">
+                <h4 class="card-title">
+                  <a href="notebook{{ item.id }}/{{ item.slug }}">{{ item.title }}</a>
+               </h4>
+                <h5>${{ item.price }}</h5>
+              </div>
+              <div class="card-footer">
+                <small class="text-muted">&#9733; &#9733; &#9733; &#9733; &#9734;</small>
+              </div>
+            </div>
+          </div>
+     {% endif %}
+{% endfor %}
+
+{% endblock menu %}
